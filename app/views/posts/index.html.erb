@@ -1,0 +1,11 @@
+Последний зарегистрированный пользователь:  <%= User.last.name %><br>
+Вы войшли как: <%= current_user.name if current_user %>
+<% @posts.each do |p| %>
+	<p>
+	  Title:<%= p.title %> <br />
+		Body: <%= p.body  %> <br />
+		<%= link_to "delete", p, method: :delete, data:{confirm: 'Вы в этому уверенны ?'} %> | 
+		<%= link_to "edit", edit_post_path(p)%> | 
+		<%= link_to "show", post_path(p) %> <br />
+<% end %>
+<br /> <%= link_to "New Post", new_post_path %>
