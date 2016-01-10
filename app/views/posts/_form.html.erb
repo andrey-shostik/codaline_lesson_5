@@ -1,13 +1,21 @@
 <%= form_for @post do |f| %>
-	<p>
-		<%= f.label :title %> <br />
-		<%= f.text_field :title %>
-	</p>
+<form class="form-horizontal">
+    
+    <div class='row'>
+      <div class='col-md-6 col-md-offset-3'>
+        
+    <div class="form-group">
+		  <%= f.label :title %> <br />
+		  <%= f.text_field :title, class: 'form-control' %>
+    </div>
 
-	<p>
-		<%= f.label :body %> <br />
-		<%= f.text_area :body %>
-		</p>
+    <div class="form-group">
+		  <%= f.label :body %> <br />
+		  <%= f.text_area :body, class: 'form-control' %>
+    </div>
+	<%= f.submit 'Save it', class: 'btn btn-default btn-block '%>
 
-		<%= f.submit 'Save it'%>
+      </div>
+  </div>
+</form>
 <% end %>
