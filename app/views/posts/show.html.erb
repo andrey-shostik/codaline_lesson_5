@@ -1,6 +1,12 @@
+<div class='row'>
+<div class='col-md-4 col-md-offset-4'>
 <h1>This Post</h1>
 <p>
 	Title:<%= @post.title %> <br />
-	Body: <%= @post.body  %>  
+  Body: <%= @post.body  %> <br />
+  <%= @time %>
 </p>
-<%= link_to 'back', root_path %>
+<%= link_to 'Back', posts_path, class: 'btn btn-default'%>
+</div>
+</div>
+

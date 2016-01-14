@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
-
+ 
 	def show
-		@post = Post.where(id: params[:id]).first
-	end
-  
+    @post = Post.find(params[:id])
+    @time = @post.created_at.strftime("Printed on %m/%d/%Y")
+  end
+
 	def index
-		@posts = Post.all
+    @posts = Post.all
 	end
     
   def new

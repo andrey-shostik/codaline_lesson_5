@@ -17,5 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-*{
+.text-user-login{
+  padding-top:15px;
+  color:darken(grey, 0);
 }
