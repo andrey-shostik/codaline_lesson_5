@@ -14,7 +14,6 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-      <li><%= link_to 'Регистрация', registration_path, class: 'nav navbar-nav' %></li>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -23,15 +22,17 @@
       </form>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to 'Вход', sessions_login_path, class: 'nav navbar-nav' %></li>
-      <li><%= link_to 'Выход', sessions_logout_path , class: 'nav navbar-nav' %></li>
+        <li><%= link_to "New Post", new_post_path, class: 'nav navbar-nav' %></li>
+        <li><%= link_to 'Регистрация', registration_path, class: 'nav navbar-nav' %></li>
+        <li><%= link_to 'Выход', sessions_logout_path , class: 'nav navbar-nav' %></li>
+        <li><%= link_to 'Вход', sessions_login_path, class: 'nav navbar-nav' %></li>
         <li class='text-user-login'><%= current_user.name if current_user %></li>
       </ul>
   </div> 
 </div>
 </nav>
 
-<%= yield %> 
+<%= yield %>
 </body>
 </html>
 

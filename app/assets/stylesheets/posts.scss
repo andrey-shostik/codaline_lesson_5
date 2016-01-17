@@ -1,3 +1,14 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bg-post{
+  padding:20px;
+  border-radius:3px;
+  border: 1px solid #ACB1B9; 
+  background-color: #F8F8F8;
+}
+
+h2 a:hover{
+  text-decoration: none;
+  color:#00ADC0;
+}

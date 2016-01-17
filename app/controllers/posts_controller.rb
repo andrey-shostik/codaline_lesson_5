@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
- 
+
 	def show
     @post = Post.find(params[:id])
-    @time = @post.created_at.strftime("Printed on %m/%d/%Y")
+    # or @post = Post.where(params[:id]).first
+    @time = @post.created_at.strftime("%m.%d.%Y")
   end
 
 	def index
@@ -47,5 +48,5 @@ class PostsController < ApplicationController
   private 
 		def post_params	
 			params.require(:post).permit(:title, :body)		
-		end	
+		end
 end

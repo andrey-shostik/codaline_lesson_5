@@ -1,31 +1,13 @@
-<div class="container">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-          <td>Title</td>
-          <td>Body</td>
-          <td>Creator</td>
-          <td>Action</td>
-      </tr>
-    </thead>
-    <tbody>
-<% @posts.each do |p| %>
-      <tr>
-          <td><%= p.title %></td>
-          <td><%= p.body %></td>
-          <td>User</td>
-          <td>
-              <%= link_to "delete", p, method: :delete, data:{confirm: 'Вы в этому уверенны ?'}, class: 'btn btn-default btn-sm' %>
-              <%= link_to "edit", edit_post_path(p), class: 'btn btn-default btn-sm'%>
-              <%= link_to "show", post_path(p), class: 'btn btn-default btn-sm'%> <br />           
-          </td>
-      </tr>
-<% end %>
-    </tbody>
-  </table>
-<div class='row'>
-  <div class='col-md-4 col-md-offset-5'>
-    <%= link_to "New Post", new_post_path, class: 'btn btn-default' %>
+<% @posts.each do |post|%>
+<div class='container '>
+  <div class='row bg-post col-md-12 col-md-offset-0'>
+        <h2><%=  link_to post.title, post_path(post) %></h2>
+        <%= post.body %><br>
+        <%= link_to "Read more »", post_path(post) %> | 
+        <%= link_to "Delete", post, method: :delete, data:{confirm: 'Вы в этому уверенны ?'} %> | 
+        <%= link_to "Edit", edit_post_path(post) %>
   </div>
 </div>
-</div>
+<br>
+<% end %>
+
