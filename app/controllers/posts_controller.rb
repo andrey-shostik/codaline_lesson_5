@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-	def show
+  def show
     @post = Post.find(params[:id])
     # or @post = Post.where(params[:id]).first
     @time = @post.created_at.strftime("%m.%d.%Y")
@@ -9,15 +9,15 @@ class PostsController < ApplicationController
 	def index
     @posts = Post.all
 	end
-    
+
   def new
 		@post = Post.new
   end
 
 	def edit
 		@post = Post.find(params[:id])
-	end
-  
+  end
+
 	def create
 		@post = Post.new(post_params)
 		if @post.save
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def update 	
+	def update
 		@post = Post.find(params[:id])
 		if @post.update(post_params)
 			redirect_to root_path
@@ -45,8 +45,8 @@ class PostsController < ApplicationController
 		end
 	end
 
-  private 
-		def post_params	
-			params.require(:post).permit(:title, :body)		
+  private
+		def post_params
+			params.require(:post).permit(:title, :body)
 		end
 end

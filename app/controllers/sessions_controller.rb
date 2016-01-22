@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
   def login
 		@user
   end
-	
-	def create	
+
+	def create
 		@user = User.find_by_email(params[:email])
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id
@@ -17,4 +17,4 @@ class SessionsController < ApplicationController
 		reset_session
 		redirect_to root_path
   end
-end 
+end

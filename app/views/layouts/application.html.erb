@@ -10,7 +10,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to 'Блог', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Blog', root_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -22,13 +22,13 @@
       </form>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "New Post", new_post_path, class: 'nav navbar-nav' %></li>
-        <li><%= link_to 'Регистрация', registration_path, class: 'nav navbar-nav' %></li>
-        <li><%= link_to 'Выход', sessions_logout_path , class: 'nav navbar-nav' %></li>
-        <li><%= link_to 'Вход', sessions_login_path, class: 'nav navbar-nav' %></li>
+        <li><%= link_to "New Post", new_post_path, class: 'nav navbar-nav' if current_user %></li>
+        <li><%= link_to 'Registration', registration_path, class: 'nav navbar-nav' %></li>
+        <li><%= link_to 'Sign out', sessions_logout_path , class: 'nav navbar-nav' %></li>
+        <li><%= link_to 'Sign in', sessions_login_path, class: 'nav navbar-nav' unless current_user %></li>
         <li class='text-user-login'><%= current_user.name if current_user %></li>
       </ul>
-  </div> 
+  </div>
 </div>
 </nav>
 
