@@ -9,8 +9,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    @artice = Article.new(article_params)
+    if @article.save
       redirect_to root_path
     else
       render text: 'ERROR'
@@ -26,12 +26,11 @@ class ArticlesController < ApplicationController
   def update
   end
 
-
   def destroy
   end
 
   private
-  def post_params
+  def artcile_params
     params.require(:article).permit(:title, :body, :tags)
   end
 end
