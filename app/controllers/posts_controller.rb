@@ -6,52 +6,51 @@ class PostsController < ApplicationController
     @time = @post.created_at.strftime("%m.%d.%Y")
   end
 
-	def index
+  def index
     @posts = Post.all
-	end
+  end
 
 
   def method_name
-    
   end
 
   def new
-		@post = Post.new
+    @post = Post.new
   end
 
   def edit
-		@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def create
-		@post = Post.new(post_params)
-		if @post.save
-			redirect_to root_path
-		else
-			render text: 'ERROR'
-		end
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+    render text: 'ERROR'
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-		if @post.update(post_params)
-			redirect_to root_path
-		else
-			render text: 'ERROR'
-		end
-	end
+    if @post.update(post_params)
+      redirect_to root_path
+    else
+      render text: 'ERROR'
+    end
+  end
 
-	def destroy
-		@post = Post.find(params[:id])
-		if @post.destroy
-			redirect_to root_path
-		else
-			redirect_to 'posts/index', error:'не получлось'
-		end
-	end
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to root_path
+    else
+      redirect_to 'posts/index', error:'не получлось'
+    end
+  end
 
   private
-		def post_params
-			params.require(:post).permit(:title, :body)
-		end
+  def post_params
+  params.require(:post).permit(:title, :body)
+  end
 end
