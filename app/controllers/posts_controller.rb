@@ -10,25 +10,30 @@ class PostsController < ApplicationController
     @posts = Post.all
 	end
 
+
+  def method_name
+    
+  end
+
   def new
 		@post = Post.new
   end
 
-	def edit
+  def edit
 		@post = Post.find(params[:id])
   end
 
-	def create
+  def create
 		@post = Post.new(post_params)
 		if @post.save
 			redirect_to root_path
 		else
 			render text: 'ERROR'
 		end
-	end
+  end
 
-	def update
-		@post = Post.find(params[:id])
+  def update
+    @post = Post.find(params[:id])
 		if @post.update(post_params)
 			redirect_to root_path
 		else

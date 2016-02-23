@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   def login
 		@user
   end
-
 	def create
 		@user = User.find_by_email(params[:email])
 		if @user && @user.authenticate(params[:password])
@@ -12,7 +11,6 @@ class SessionsController < ApplicationController
 			redirect_to :back
 		end
 	end
-
   def logout
 		reset_session
 		redirect_to root_path
